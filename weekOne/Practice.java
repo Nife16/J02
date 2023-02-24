@@ -19,6 +19,9 @@ public class Practice {
         // evenCharacters(myString);
         palindrome(myString);
 
+
+        // we changed some stuff up
+
     }
 
     public static void palindrome(String myString) {
