@@ -6,22 +6,18 @@ public class Practice {
 
     public static void main(String[] args) {
         
-        // Write a method that tells if a word is a palindrome
+        
+        int[] numArray = {1,2,3,54,231312312,32,34,2332,432423,234,23423,3,4,5,6};
 
+        int[] copy = new int[numArray.length];
 
-        System.out.println("What is the string");
+        for (int i = 0; i < copy.length; i++) {
+            copy[i] = numArray[i];
+        }
+       
+        System.arraycopy(numArray, 0, copy, 0, numArray.length);
 
-        Scanner scr = new Scanner(System.in);
-
-        String myString = scr.nextLine(); 
-
-        // reverseString(myString);
-        // evenCharacters(myString);
-        palindrome(myString);
-
-
-        // we changed some stuff up
-
+        copy = numArray.clone();
     }
 
     public static void palindrome(String myString) {

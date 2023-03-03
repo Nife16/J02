@@ -7,7 +7,7 @@ public class Lab5 {
 
         Scanner scr = new Scanner(System.in);
 
-
+        // 1)
         // System.out.println("Whats the word, bird: ");
         // String string = scr.nextLine();
         // System.out.println("Whats the letter, fetter: ");
@@ -16,10 +16,16 @@ public class Lab5 {
         // countTheNumberOfOccurencesOfACharArray(string, letter);
 
 
-        
+        // 2)
         System.out.println("Whats the word, bird: ");
         String string = scr.nextLine();
         removeWhiteSpaces(string);
+
+        // 3)
+        // removeDupes("dupeyloopey");
+
+        // 4)
+        // reverseString("dupey is loopey");
 
         scr.close();
         
@@ -50,7 +56,7 @@ public class Lab5 {
 
     public static void removeWhiteSpaces(String string) {
 
-        // create char array 
+        // create char array
         char[] charArr = string.toCharArray();
 
         // we must count the white spaces to make a new array that will not have the spaces
@@ -77,29 +83,69 @@ public class Lab5 {
             }
         }
 
-        System.out.println("no white space string:->   " + newArr.toString());
+        System.out.print("no white space string:->   ");
+        System.out.println(newArr);
 
     }
 
     //3. Write a method to find duplicate characters in a char array?
+
+    public static void removeDupes(String string) {
+
+        // boolean firstDupe = false;
+
+        String stringCopy = string;
+
+        for (int i = 0; i < string.length(); i++) {
+            
+            for (int j = i+1; j < string.length(); j++) {
+
+                if(string.charAt(i) == string.charAt(j)) {
+
+                    stringCopy = stringCopy.replaceAll(Character.toString(string.charAt(i)), "");
+                    break;
+
+                }
+
+            }
+
+        }
+
+        System.out.println(stringCopy);
+
+    }
 
 
     //4. Write a method to display the words in reverse order.  “How are you” should be displayed “you are How”
 
     public static void reverseString(String string) {
 
+        // you are How 
         String[] strArr = string.split(" ", 0);
 
         String reverse = "";
 
         for (int i = 0; i < strArr.length; i++) {
 
-            reverse = strArr[i] + " " +  reverse;
+            reverse = strArr[i] + " " + reverse;
             
         }
 
 
         System.out.println(reverse);
+
+        // uoy era woH
+        String reverse2 = "";
+
+
+        for (int i = string.length()-1; i >= 0; i--) {
+
+            reverse2 = reverse2.concat(Character.toString(string.charAt(i)));
+            
+        }
+
+        System.out.println(reverse2);
+
     }
 
 
