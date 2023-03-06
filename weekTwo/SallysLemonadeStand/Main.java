@@ -1,5 +1,6 @@
 package weekTwo.SallysLemonadeStand;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -98,45 +99,96 @@ public class Main {
             System.out.println("How many: ");
             int amount = scr.nextInt();
 
-            switch(choice) {
+            switch (choice) {
                 case 1:
-                for (int i = 1; i <= amount; i++) {
-                    cart.add(strLemonade);
-                }
-                break;
+                    for (int i = 1; i <= amount; i++) {
+                        cart.add(strLemonade);
+                    }
+                    break;
                 case 2:
-                for (int i = 1; i <= amount; i++) {
-                    cart.add(bbrLemonade);
-                }
-                break;
+                    for (int i = 1; i <= amount; i++) {
+                        cart.add(bbrLemonade);
+                    }
+                    break;
                 case 3:
-                for (int i = 1; i <= amount; i++) {
-                    cart.add(bwmLemonade);
-                }
-                break;
+                    for (int i = 1; i <= amount; i++) {
+                        cart.add(bwmLemonade);
+                    }
+                    break;
                 case 4:
-                for (int i = 1; i <= amount; i++) {
-                    cart.add(sallyWater);
-                }
-                break;
+                    for (int i = 1; i <= amount; i++) {
+                        cart.add(sallyWater);
+                    }
+                    break;
             }
 
             System.out.println("Would you like to buy more?");
             buyMore = scr.nextBoolean();
-        } while(buyMore == true);
+        } while (buyMore == true);
 
         Double cost = 0.0;
         for (int i = 0; i < cart.size(); i++) {
+
+            if (account != null) {
+                account.getBoughtProducts().add(cart.get(i));
+            }
             cost += cart.get(i).getPrice();
-            
-            account.getBoughtProducts().add(cart.get(i));
 
             cart.get(i).removeOneProduct();
+
         }
-        System.out.println("Your total cost will be: " + cost);
+
+        boolean loopAgain = false;
+
+        do {
+            CreditCard creditCard = createCard(account, cost);
+
+            if (cost > creditCard.getBalance()) {
+                System.out.println("Broke people cant shop here.");
+                loopAgain = true;
+                System.out.println("Enter in a differnt card.");
+            } else {
+                loopAgain = false;
+            }
+        } while (loopAgain);
 
         System.out.println("Thank you for your patronage");
-        
+
+    }
+
+    public static CreditCard createCard(Account account, Double cost) {
+        System.out.println("Your total cost will be: " + cost);
+
+        System.out.println("What is your name on the card: ");
+        String name = scr.nextLine();
+
+        System.out.println("What is your card number: ");
+        String cardNumber = scr.nextLine();
+
+        System.out.println("What is your experiation date on card: ");
+        String date = scr.nextLine(); // 2027-04-05
+        LocalDate localDate = LocalDate.parse(date);
+
+        System.out.println("What is the card ccv: ");
+        String ccv = scr.nextLine();
+
+        System.out.println("What is your zipCode: ");
+        String zipCode = scr.nextLine();
+
+        System.out.println("What is the card balance: ");
+        Double balance = scr.nextDouble();
+
+        CreditCard creditCard = new CreditCard(name, cardNumber, localDate, ccv, zipCode, balance);
+
+        System.out.println("Would you like to add this card to your account: (Y/N)");
+        String yOrN = scr.nextLine();
+        if (yOrN.equals("Y") && account != null) {
+            account.setCreditCard(creditCard);
+        } else if (account == null) {
+            System.out.println("Please login to connect card to your account.");
+        }
+
+        return creditCard;
     }
 
 }

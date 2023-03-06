@@ -9,6 +9,7 @@ public class Account {
     private String password;
     private String phoneNumber;
     private ArrayList<Product> boughtProducts;
+    private CreditCard creditCard;
 
     // Address is saved for later  
     
@@ -50,7 +51,7 @@ public class Account {
     @Override
     public String toString() {
         return "Account [name=" + name + ", email=" + email + ", password=" + password + ", phoneNumber=" + phoneNumber
-                + ", boughtProducts=" + boughtProducts + "]";
+                + ", boughtProducts=" + boughtProducts + ", creditCard=" + creditCard + "]";
     }
 
     public ArrayList<Product> getBoughtProducts() {
@@ -59,6 +60,14 @@ public class Account {
 
     public void setBoughtProducts(ArrayList<Product> boughtProducts) {
         this.boughtProducts = boughtProducts;
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
     }
     
     
