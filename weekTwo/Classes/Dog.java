@@ -68,4 +68,15 @@ public class Dog {
                 + behavior + "]";
     }
 
+    public void fryChicken() {
+        System.out.println("poof its fried");   
+    }
+
+    public void fryChicken(int number) {
+        System.out.println("air fryer that mug");
+    }
+
+    public void fryChicken(String number) {
+        System.out.println("oven fried somehow");
+    }
 }

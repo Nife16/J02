@@ -15,6 +15,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Account fakeAccount = new Account("Seymore Butts", "seymore@gmail.com",
+            "123cantseeme", "1234567890");
+        listOfAccounts.add(fakeAccount);
+
         //
         int choice;
         do {
@@ -88,39 +92,7 @@ public class Main {
         boolean buyMore;
         ArrayList<Product> cart = new ArrayList<Product>();
         do {
-            System.out.println("What kind of lemonade would you like: ");
-
-            System.out.println("1) Strawberry Lemonade");
-            System.out.println("2) Blueberry Lemonade");
-            System.out.println("3) Boneless Watermelon Lemonade");
-            System.out.println("4) Special Water");
-
-            int choice = scr.nextInt();
-            System.out.println("How many: ");
-            int amount = scr.nextInt();
-
-            switch (choice) {
-                case 1:
-                    for (int i = 1; i <= amount; i++) {
-                        cart.add(strLemonade);
-                    }
-                    break;
-                case 2:
-                    for (int i = 1; i <= amount; i++) {
-                        cart.add(bbrLemonade);
-                    }
-                    break;
-                case 3:
-                    for (int i = 1; i <= amount; i++) {
-                        cart.add(bwmLemonade);
-                    }
-                    break;
-                case 4:
-                    for (int i = 1; i <= amount; i++) {
-                        cart.add(sallyWater);
-                    }
-                    break;
-            }
+            cart = selectAProduct(cart);
 
             System.out.println("Would you like to buy more?");
             buyMore = scr.nextBoolean();
@@ -189,6 +161,44 @@ public class Main {
         }
 
         return creditCard;
+    }
+
+    public static ArrayList<Product> selectAProduct(ArrayList<Product> cart) {
+        System.out.println("What kind of lemonade would you like: ");
+
+            System.out.println("1) Strawberry Lemonade");
+            System.out.println("2) Blueberry Lemonade");
+            System.out.println("3) Boneless Watermelon Lemonade");
+            System.out.println("4) Special Water");
+
+            int choice = scr.nextInt();
+            System.out.println("How many: ");
+            int amount = scr.nextInt();
+
+            switch (choice) {
+                case 1:
+                    for (int i = 1; i <= amount; i++) {
+                        cart.add(strLemonade);
+                    }
+                    break;
+                case 2:
+                    for (int i = 1; i <= amount; i++) {
+                        cart.add(bbrLemonade);
+                    }
+                    break;
+                case 3:
+                    for (int i = 1; i <= amount; i++) {
+                        cart.add(bwmLemonade);
+                    }
+                    break;
+                case 4:
+                    for (int i = 1; i <= amount; i++) {
+                        cart.add(sallyWater);
+                    }
+                    break;
+            }
+
+            return cart;
     }
 
 }
