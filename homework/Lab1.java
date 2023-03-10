@@ -1,10 +1,11 @@
 package homework;
+
 import java.util.Scanner;
 
 public class Lab1 {
 
     public static void main(String[] args) {
-        
+
         // String string = circle();
         // System.out.println(string);
         // triangle();
@@ -13,28 +14,27 @@ public class Lab1 {
         // letterAsASCII();
         // doubleAsWhole();
         // leapYear();
+    
     }
 
     public static String circle() {
         // Write a method to prompt the user to enter the radius of the circle
         // then calculate the area and circumference of the circle.
-    	Scanner scanner = new Scanner(System.in);
-
+        Scanner scanner = new Scanner(System.in);
 
         System.out.print("What is the radius -> ");
         int radius = scanner.nextInt();
 
         double pi = 3.14;
 
-        double area = (radius*radius)*pi;
+        double area = (radius * radius) * pi;
 
-        double circumference = 2*pi*radius;
-
+        double circumference = 2 * pi * radius;
 
         scanner.close();
-        
-        return "Area: " + area + ", Circumference: " +  circumference;
-        
+
+        return "Area: " + area + ", Circumference: " + circumference;
+
     }
 
     public static void triangle() {
@@ -47,8 +47,8 @@ public class Lab1 {
         int base = scanner.nextInt();
         System.out.print("What is the height -> ");
         int height = scanner.nextInt();
-        
-        int area = (base*height)/2;
+
+        int area = (base * height) / 2;
 
         System.out.println("Area -> " + area);
 
@@ -64,7 +64,7 @@ public class Lab1 {
         System.out.print("What is the number -> ");
         int number = scanner.nextInt();
 
-        if(number%2 == 0) {
+        if (number % 2 == 0) {
             System.out.println("EVEN");
         } else {
             System.out.println("ODD");
@@ -74,7 +74,7 @@ public class Lab1 {
     }
 
     public static void oneDecimal() {
-        // Write a method to prompt the user for an Integer 
+        // Write a method to prompt the user for an Integer
         // then display the same value with one decimal place.
         // eg user enter "15 " result is: "You entered 15, the new value is 15.0"
 
@@ -83,15 +83,15 @@ public class Lab1 {
         System.out.print("What is the number -> ");
         int number = scanner.nextInt();
 
-        double oneDecimalNumber = Math.round(number*10)/10;
+        double oneDecimalNumber = Math.round(number * 10) / 10;
 
-        System.out.println("Wan Decimuh: " +  oneDecimalNumber);
+        System.out.println("Wan Decimuh: " + oneDecimalNumber);
 
         scanner.close();
     }
 
     public static void letterAsASCII() {
-        //  Write a method to prompt the user for 
+        // Write a method to prompt the user for
         // a letter of the alphabet and display it's ascii value.
 
         Scanner scanner = new Scanner(System.in);
@@ -110,7 +110,7 @@ public class Lab1 {
     public static void doubleAsWhole() {
         // Write a method to prompt the user for a double
         // then display the value as a whole number.
-        // eg user enter "15.8" result is: "You entered 15.8, the new value is 16". 
+        // eg user enter "15.8" result is: "You entered 15.8, the new value is 16".
         // eg user enter "15.4" result is: "You entered 15.4, the new value is 15".
 
         Scanner scanner = new Scanner(System.in);
@@ -123,40 +123,38 @@ public class Lab1 {
         System.out.println("Whole number is -> " + wholeNumbuh);
 
         scanner.close();
-        
+
     }
-    
-    
+
     public static void leapYear() {
-//    	Write a method to prompt the user for 4 digits representing a year.
-//    	Then determine If Year Is a Leap Year.
-    	
-    	Scanner scanner = new Scanner(System.in);
+        // Write a method to prompt the user for 4 digits representing a year.
+        // Then determine If Year Is a Leap Year.
+
+        Scanner scanner = new Scanner(System.in);
 
         System.out.print("What is the year -> ");
         int year = scanner.nextInt();
-        
-        if(year%4 == 0) {
-        	
-        	if(year%100 == 0) {
-        		
-        		if(year%400 == 0) {
-        			
-        			System.out.println("Its a leap year!");
-        		} else {
-        			
-        			System.out.println("its not");
-        		}
-        		
-        	} else {
-        		System.out.println("Its a leap year!");
-        	}
-        	
+
+        if (year % 4 == 0) {
+
+            if (year % 100 == 0) {
+
+                if (year % 400 == 0) {
+
+                    System.out.println("Its a leap year!");
+                } else {
+
+                    System.out.println("its not");
+                }
+
+            } else {
+                System.out.println("Its a leap year!");
+            }
+
         } else {
-			System.out.println("Its not");
-		}
+            System.out.println("Its not");
+        }
         scanner.close();
     }
-
 
 }

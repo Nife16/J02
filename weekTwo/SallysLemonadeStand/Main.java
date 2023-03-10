@@ -19,7 +19,8 @@ public class Main {
             "123cantseeme", "1234567890");
         listOfAccounts.add(fakeAccount);
 
-        //
+        // Collections.sort(personList, Comparator.comparing(Person::getLastName));
+
         int choice;
         do {
             Account account = null;
