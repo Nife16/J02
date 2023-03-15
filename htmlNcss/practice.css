@@ -1,0 +1,35 @@
+/* All tag selector */
+* {
+    color:aqua;
+}
+
+/* Css Tag Selector */
+td {
+  font-family: monospace;
+  font-weight: bold;
+  font-style: oblique;
+}
+
+
+a {
+    text-decoration: none;
+    color: red;
+}
+
+/* Css id selector */
+#not-as-big-hedda {
+    color:darksalmon;
+    border: 20px solid goldenrod;
+}
+
+/* Css class selector */
+.li-stuff {
+    color:#bd0006;
+    font-size: 30px;
+    background-color: cornsilk;
+}
+
+.another-class {
+    color:rgb(0, 0, 255);
+    text-decoration: line-through;
+}
