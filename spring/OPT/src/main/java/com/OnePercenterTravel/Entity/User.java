@@ -25,11 +25,11 @@ public class User {
 	private Integer id;
 
     // Column maps to the same name as the column name in the database, it is case sensitive
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     // Column maps to the same name as the column name in the database, it is case sensitive
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
     // Column maps to the same name as the column name in the database, it is case sensitive
