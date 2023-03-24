@@ -17,6 +17,8 @@ public class UserService {
 
     // This will construct a spring bean in your file
     // this allows you to use the autowired class's function in this file
+    // YOU ONLY AUTOWIRE THE REPO FOR YOUR OWN ENTITY
+    // YOU SHOULD NOT AUTOWIRE ANY SERVICES IN YOUR SERVICE
     @Autowired
     UserRepo userRepo;
 
@@ -37,6 +39,16 @@ public class UserService {
     }
 
     // UPDATE
+                    // Must throws Exception when throwing custom errors
+    public User update(User user) throws Exception {
+
+        if(user.getId() == null) {
+            // throwing your own exception will stop
+            throw new Exception("Try again billy!");
+        }
+
+        return userRepo.save(user);
+    }
 
     // DELETE
 

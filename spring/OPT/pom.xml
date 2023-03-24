@@ -36,6 +36,12 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<!-- More local host server stuff -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
 		<!-- Hooking up your Repositories to the database -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

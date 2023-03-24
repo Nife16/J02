@@ -1,0 +1,15 @@
+/* Everything except the head tag will get this css */
+*:not(head) {
+    /* everything is going to display flex
+        so we can flex col and flex row our eyes out */
+    display: flex;
+}
+/* Makes a html element display its children in a row direction */
+.flex-row {
+    flex-direction: row;
+}
+/* Makes a html element display its children in a column direction */
+.flex-col {
+    flex-direction: column;
+}
+

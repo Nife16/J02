@@ -1,0 +1,31 @@
+html body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.header {
+    height: 8%;
+    background-color: darkslateblue;
+    justify-content: center;
+}
+
+.header-link {
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: 100%;
+    width: 100px;
+}
+
+.header-link:hover {
+    cursor:pointer;
+    background-color: blueviolet;
+}
+
+.main-content {
+    justify-content: center;
+    align-items: center;
+    height: 92%;
+}
