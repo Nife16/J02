@@ -2,8 +2,12 @@ package com.OnePercenterTravel.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.OnePercenterTravel.Entity.User;
 import com.OnePercenterTravel.Service.UserService;
 
 
@@ -15,6 +19,7 @@ import com.OnePercenterTravel.Service.UserService;
 @Controller
 public class UserController {
     
+    // YOU ONLY AUTOWIRE SERVICES IN CONTROLLERS NEVER THE REPO!!!!!!!!!!!!!
     @Autowired
     UserService userService;
 
@@ -27,9 +32,30 @@ public class UserController {
     }
 
     @GetMapping("/sign-up")
-    public String signUp() {
+    // Whenever you are putting data on a page
+    // (like adding an object to the jsp to show or update data)
+    // You need a Model
+    public String signUp(Model model) {
+
+        // We must set a model attribute on the page, so our form can have a 
+        // blank object to contruct with the form data
+        model.addAttribute("user", new User());
 
         return "signUp";
+    }
+
+    // Whenever you are submitting data, you need a postmapping
+    // This will grab the modelAttribute you submitted so you
+    // can now do whatever you need to do with it.
+    @PostMapping("/sign-up")
+    public String signUp(@ModelAttribute("user") User user, Model model) {
+
+        User loggedInUser = userService.signUp(user);
+
+        model.addAttribute("user", loggedInUser);
+
+        return "home";
+
     }
 
 
