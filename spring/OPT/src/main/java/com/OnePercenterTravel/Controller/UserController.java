@@ -1,5 +1,7 @@
 package com.OnePercenterTravel.Controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,17 @@ public class UserController {
     // no form submission at all
     @GetMapping("/")
     // This function will run whenever someone goes to the / url (http://localhost:8080/)
-    public String index() {
+    public String index(HttpSession session, Model model) {
+
+        String email = (String) session.getAttribute("emailCookie");
+        if(email != null) {
+
+            User loggedInUser = userService.findUserByEmail(email);
+
+            model.addAttribute("user", loggedInUser);
+
+        }
+
         return "home";
     }
 
@@ -52,10 +64,37 @@ public class UserController {
 
         User loggedInUser = userService.signUp(user);
 
-        model.addAttribute("user", loggedInUser);
+        return "redirect:";
 
-        return "home";
+    }
 
+    @GetMapping("/sign-in")
+    public String signIn(Model model) {
+
+        model.addAttribute("user", new User());
+
+        return "signIn";
+
+    }
+
+    @PostMapping("/sign-in")                     // HttpSession is for storing cookies for login
+    public String signIn(@ModelAttribute("user") User user, HttpSession session) {
+
+        try {
+
+            User loggedInUser = userService.signIn(user);
+
+            // After i have successfully validated and signed in,
+            // i store the users email on a cookie for future use to reverify.
+            session.setAttribute("emailCookie", loggedInUser.getEmail());
+
+            return "redirect:";
+
+        } catch(Exception e) {
+
+            return "signIn";
+
+        }
     }
 
 

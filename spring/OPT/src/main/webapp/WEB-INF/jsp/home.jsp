@@ -1,3 +1,10 @@
+<!-- The form tag will allow you to grab the information 
+from the form and send it to the controller -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!-- Allows you to use c tags, tags that do things like if statements and loops -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- Allows for java stuff on the page -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +24,20 @@
         <a href="/sign-in" class="header-link">Sign In</a>
     </div>
     <div class="main-content flex-row">
-        Hi mom
+        <!-- if im logged in show my name, if not, show hi mom -->
+        <c:if test="${user != null}">
+            WE HAVE A USER!!!!
+        </c:if>
+        <!-- c:choose works like an if else, 
+            when is the if statement, otherwise is the else -->
+        <c:choose>
+            <c:when test="${user != null}">
+                Hello there ${user.getName()}
+            </c:when>
+            <c:otherwise>
+                Hi mom
+            </c:otherwise>
+        </c:choose>
     </div>
 </body>
 </html>

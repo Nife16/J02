@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="/css/flex.css">
     <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body class="flex-col">
     <div class="header flex-row">
         <a href="/sign-up" class="header-link">Sign Up</a>
@@ -56,5 +55,4 @@
         </div>
     </div>
 </body>
-
 </html>
