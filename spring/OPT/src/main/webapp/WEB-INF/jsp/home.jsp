@@ -18,11 +18,22 @@ from the form and send it to the controller -->
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body class="flex-col">
-    <div class="header flex-row">
-        <a href="/sign-up" class="header-link">Sign Up</a>
-        <a href="/" class="header-link">Home</a>
-        <a href="/sign-in" class="header-link">Sign In</a>
-    </div>
+    <c:choose>
+        <c:when test="${user != null}">
+            <div class="header flex-row">
+                <div class="header-link">Hello ${user.getName()}</div>
+                <a href="/" class="header-link">Home</a>
+                <a href="/logout" class="header-link">Log Out</a>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div class="header flex-row">
+                <a href="/sign-up" class="header-link">Sign Up</a>
+                <a href="/" class="header-link">Home</a>
+                <a href="/sign-in" class="header-link">Sign In</a>
+            </div>
+        </c:otherwise>
+    </c:choose>
     <div class="main-content flex-row">
         <!-- if im logged in show my name, if not, show hi mom -->
         <c:if test="${user != null}">

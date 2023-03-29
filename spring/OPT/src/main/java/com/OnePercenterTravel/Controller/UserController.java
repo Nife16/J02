@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.OnePercenterTravel.Entity.User;
 import com.OnePercenterTravel.Service.UserService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 // The controller is the liason between the JSP and the Services
@@ -33,6 +35,7 @@ public class UserController {
 
         String email = (String) session.getAttribute("emailCookie");
         if(email != null) {
+
 
             User loggedInUser = userService.findUserByEmail(email);
 
@@ -60,9 +63,13 @@ public class UserController {
     // This will grab the modelAttribute you submitted so you
     // can now do whatever you need to do with it.
     @PostMapping("/sign-up")
-    public String signUp(@ModelAttribute("user") User user, Model model) {
+    public String signUp(@ModelAttribute("user") User user, HttpSession session) {
 
         User loggedInUser = userService.signUp(user);
+
+        // After i have successfully validated and signed in,
+        // i store the users email on a cookie for future use to reverify.
+        session.setAttribute("emailCookie", loggedInUser.getEmail());
 
         return "redirect:";
 
@@ -96,6 +103,18 @@ public class UserController {
 
         }
     }
+
+    // Logging out is simply stopping the user from accessing there data until
+    // they login again. Remove the cookie, and REDIRECT them
+    @GetMapping(value="/logout")
+    public String logOut(HttpSession session) {
+
+        session.removeAttribute("emailCookie");
+
+        return "redirect:";
+
+    }
+    
 
 
 }
