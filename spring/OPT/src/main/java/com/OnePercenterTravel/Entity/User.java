@@ -1,10 +1,14 @@
 package com.OnePercenterTravel.Entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 // Allows spring to see your file as an Entity
@@ -35,6 +39,10 @@ public class User {
     // Column maps to the same name as the column name in the database, it is case sensitive
     @Column(name = "name")
     private String name;
+
+    @OneToMany
+    @JoinColumn(name="reservation_id")
+    private List<Reservation> reservation;
 
     public User() {
     }
@@ -73,7 +81,16 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + "]";
+        return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", reservation="
+                + reservation + "]";
+    }
+
+    public List<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
     }
     
 }

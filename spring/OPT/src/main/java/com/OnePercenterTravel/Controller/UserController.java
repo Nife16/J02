@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.OnePercenterTravel.Entity.User;
 import com.OnePercenterTravel.Service.UserService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
