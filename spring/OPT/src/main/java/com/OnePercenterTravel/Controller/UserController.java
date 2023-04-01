@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.OnePercenterTravel.Entity.Reservation;
 import com.OnePercenterTravel.Entity.User;
 import com.OnePercenterTravel.Service.UserService;
 
@@ -34,7 +35,6 @@ public class UserController {
 
         String email = (String) session.getAttribute("emailCookie");
         if(email != null) {
-
 
             User loggedInUser = userService.findUserByEmail(email);
 
@@ -94,6 +94,10 @@ public class UserController {
             // i store the users email on a cookie for future use to reverify.
             session.setAttribute("emailCookie", loggedInUser.getEmail());
 
+            if(loggedInUser.getIsAdmin() == true) {
+                return "redirect:admin-tool";
+            }
+
             return "redirect:";
 
         } catch(Exception e) {
@@ -112,8 +116,15 @@ public class UserController {
 
         return "redirect:";
 
+
     }
     
+    @GetMapping("/create-reservation")
+    public String createReservation(Model model) {
 
+        model.addAttribute("reservation", new Reservation());
+
+        return "reservation";
+    }
 
 }

@@ -1,0 +1,14 @@
+.link-button {
+    margin: 10px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 40px;
+    min-width: 200px;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslateblue;
+    color: white;
+    font-weight: 700px;
+    text-decoration: none;
+}

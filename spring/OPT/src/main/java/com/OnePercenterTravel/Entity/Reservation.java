@@ -33,7 +33,8 @@ public class Reservation {
     @Column(name = "end_of_trip")
     private LocalDateTime endOfTrip;
     @OneToMany
-    @JoinColumn(name="place_id")
+    // On a one to many, you state the parent as the foreign key, to be placed on the child
+    @JoinColumn(name="reservation_id")
     private List<Place> placeOfTravel;
     
     public Reservation() {

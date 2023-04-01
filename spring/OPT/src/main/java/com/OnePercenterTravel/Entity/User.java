@@ -40,8 +40,13 @@ public class User {
     @Column(name = "name")
     private String name;
 
+    // Column maps to the same name as the column name in the database, it is case sensitive
+    @Column(name = "is_admin")
+    private Boolean isAdmin;
+
     @OneToMany
-    @JoinColumn(name="reservation_id")
+    // On a one to many, you state the parent as the foreign key, to be placed on the child
+    @JoinColumn(name="user_id")
     private List<Reservation> reservation;
 
     public User() {
@@ -81,8 +86,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", reservation="
-                + reservation + "]";
+        return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", isAdmin="
+                + isAdmin + ", reservation=" + reservation + "]";
     }
 
     public List<Reservation> getReservation() {
@@ -91,6 +96,14 @@ public class User {
 
     public void setReservation(List<Reservation> reservation) {
         this.reservation = reservation;
+    }
+
+    public Boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
     
 }
