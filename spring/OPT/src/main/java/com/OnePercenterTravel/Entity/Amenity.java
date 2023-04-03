@@ -29,9 +29,6 @@ public class Amenity {
     private String type;
     @Column(name = "description")
     private String description;
-    @ManyToMany
-    @JsonIgnore
-    private List<Place> places;
 
     public Amenity() {
     }
@@ -62,12 +59,6 @@ public class Amenity {
     @Override
     public String toString() {
         return "Amenity [id=" + id + ", activity=" + activity + ", type=" + type + ", description=" + description + "]";
-    }
-    public List<Place> getPlaces() {
-        return places;
-    }
-    public void setPlaces(List<Place> places) {
-        this.places = places;
     }
 
     

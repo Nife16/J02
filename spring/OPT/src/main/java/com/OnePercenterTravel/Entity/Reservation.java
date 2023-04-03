@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -32,10 +34,16 @@ public class Reservation {
     private LocalDateTime startOfTrip;
     @Column(name = "end_of_trip")
     private LocalDateTime endOfTrip;
-    @OneToMany
-    // On a one to many, you state the parent as the foreign key, to be placed on the child
-    @JoinColumn(name="reservation_id")
+    @ManyToMany
+    @JoinTable(
+        name="reservation_place",
+        joinColumns=
+            @JoinColumn(name="reservation_id", referencedColumnName="id"),
+        inverseJoinColumns=
+            @JoinColumn(name="place_id", referencedColumnName="id")
+    )
     private List<Place> placeOfTravel;
+    
     
     public Reservation() {
     }

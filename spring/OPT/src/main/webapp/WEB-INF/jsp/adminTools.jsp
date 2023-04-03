@@ -40,9 +40,9 @@ from the form and send it to the controller -->
                 <h1>Welcome Admin, Choose an Option!</h1>
             </div>
             <div class="flex-row justify-center">
-                <a class="link-button" href="/reservation">Reservations</a>
-                <a class="link-button" href="/place">Places</a>
-                <a href="/amenity" class="link-button">Amenities</a>
+                <a class="link-button" href="/reservation">See All Reservations</a>
+                <a class="link-button" href="/adminPlaces">Create and Update Places</a>
+                <a href="/amenity" class="link-button">Create and Update Amenities</a>
             </div>
         </div>
     </div>
