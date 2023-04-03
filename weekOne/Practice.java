@@ -6,8 +6,6 @@ public class Practice {
 
     public static void main(String[] args) {
         
-        
-        
         int[] numArray = {1,2,3,54,231312312,32,34,2332,432423,234,23423,3,4,5,6};
 
         int[] copy = new int[numArray.length];
