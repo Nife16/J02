@@ -33,3 +33,11 @@ html body {
 .justify-center {
     justify-content: center;
 }
+
+.box {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
