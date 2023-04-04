@@ -1,5 +1,6 @@
 package com.OnePercenterTravel.Entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -31,9 +32,9 @@ public class Reservation {
     @Column(name = "number_of_people")
     private Integer numberOfPeople;
     @Column(name = "start_of_trip")
-    private LocalDateTime startOfTrip;
+    private LocalDate startOfTrip;
     @Column(name = "end_of_trip")
-    private LocalDateTime endOfTrip;
+    private LocalDate endOfTrip;
     @ManyToMany
     @JoinTable(
         name="reservation_place",
@@ -65,16 +66,16 @@ public class Reservation {
     public void setNumberOfPeople(Integer numberOfPeople) {
         this.numberOfPeople = numberOfPeople;
     }
-    public LocalDateTime getStartOfTrip() {
+    public LocalDate getStartOfTrip() {
         return startOfTrip;
     }
-    public void setStartOfTrip(LocalDateTime startOfTrip) {
+    public void setStartOfTrip(LocalDate startOfTrip) {
         this.startOfTrip = startOfTrip;
     }
-    public LocalDateTime getEndOfTrip() {
+    public LocalDate getEndOfTrip() {
         return endOfTrip;
     }
-    public void setEndOfTrip(LocalDateTime endOfTrip) {
+    public void setEndOfTrip(LocalDate endOfTrip) {
         this.endOfTrip = endOfTrip;
     }
     public List<Place> getPlaceOfTravel() {

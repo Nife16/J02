@@ -43,7 +43,7 @@ from the form and send it to the controller -->
             when is the if statement, otherwise is the else -->
         <c:choose>
             <c:when test="${user != null}">
-                Hello there ${user.getName()}
+                <a href="/book">Book!</a>
             </c:when>
             <c:otherwise>
                 Hi mom

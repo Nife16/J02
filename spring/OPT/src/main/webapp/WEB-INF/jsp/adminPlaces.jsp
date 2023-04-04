@@ -61,11 +61,11 @@ from the form and send it to the controller -->
             </div>
             <div>
                 <c:forEach items="${allPlaces}" var="place">
-                    <div class="box flex-col">
+                    <a href="/updatePlace/${place.getId()}" class="box flex-col">
                         <div>Name: ${place.getName()}</div>
                         <div>Price: ${place.getPrice()}</div>
                         <img src="${place.getImgUrl()}" class="placeImage" />
-                    </div>
+                    </a>
                 </c:forEach>
             </div>
         </div>

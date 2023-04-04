@@ -3,6 +3,7 @@ package com.OnePercenterTravel.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.OnePercenterTravel.Entity.Reservation;
 import com.OnePercenterTravel.Entity.User;
 import com.OnePercenterTravel.Repo.UserRepo;
 
@@ -62,6 +63,13 @@ public class UserService {
             throw new Exception("Try again billy!");
         }
 
+        return userRepo.save(user);
+    }
+
+    public User addReservation(User user, Reservation reservation) {
+
+        user.getReservation().add(reservation);
+        
         return userRepo.save(user);
     }
 
