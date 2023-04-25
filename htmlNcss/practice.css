@@ -1,6 +1,6 @@
 /* All tag selector */
-* {
-    color:aqua;
+*:not(head) {
+    color: purple;
 }
 
 /* Css Tag Selector */
@@ -10,6 +10,10 @@ td {
   font-style: oblique;
 }
 
+
+div a {
+
+}
 
 a {
     text-decoration: none;
